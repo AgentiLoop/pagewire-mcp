@@ -2,6 +2,8 @@
 
 MCP server for [PageWire](https://pagewire.dev/?ref=github-mcp). It turns any public web page into clean Markdown for AI agents, paid per call in USDC. There is no API key and no account.
 
+**Try it free:** tool calls without payment are free up to $0.10 of list price per client per day (10 pages to Markdown, 20 metadata calls or 3 crawls). After that the tool answers with an x402 payment request.
+
 | Tool | What it does | Price |
 |---|---|---|
 | `page_to_markdown` | Fetches a public page and returns its title, description, clean Markdown and links. Deterministic, no model call | $0.01 |
@@ -36,9 +38,10 @@ echo '{"jsonrpc":"2.0","id":1,"method":"tools/list"}' | npx -y github:AgentiLoop
 
 ## Paying
 
-1. Call a tool without `payment`. The result is `isError: true` with `structuredContent.paymentRequired`, which holds the x402 v2 `accepts` list (network, asset, amount, `payTo`).
-2. Sign one entry with any x402 client (for example `@x402/fetch`) and call the tool again with the base64 payload as `payment`.
-3. A bad input or a page that cannot be fetched (4xx) is never charged.
+1. Within the daily free allowance a tool call just works; the result's `_meta["pagewire/free"]` shows the allowance left today.
+2. After that, a call without payment returns `isError: true` with `structuredContent` set to the x402 v2 PaymentRequired object (the `accepts` list: network, asset, amount, `payTo`), following the x402 MCP transport. `@x402/mcp` clients pay automatically.
+3. To pay by hand, sign one `accepts` entry with any x402 client and call the tool again with the payload in `params._meta["x402/payment"]` (or the base64 payload as the `payment` argument).
+4. A bad input or a page that cannot be fetched (4xx) is never charged.
 
 The same tools are plain HTTP endpoints: `GET https://pagewire.dev/x402/extract?url=…`, `/x402/meta?url=…` and `/x402/crawl?url=…`. Each one also accepts MPP (`npx mppx "https://pagewire.dev/x402/extract?url=https://example.com"`). Discovery: [openapi.json](https://pagewire.dev/openapi.json), [llms.txt](https://pagewire.dev/llms.txt).
 
