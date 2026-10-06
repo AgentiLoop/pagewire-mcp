@@ -1,0 +1,13 @@
+{
+  "name": "pagewire-mcp",
+  "version": "1.0.0",
+  "description": "MCP stdio bridge for PageWire: web page → clean Markdown, page metadata and small same-site crawls for AI agents, paid per call in USDC (x402/MPP, no API key).",
+  "type": "module",
+  "bin": { "pagewire-mcp": "bin/pagewire-mcp.mjs" },
+  "files": ["bin", "README.md", "llms-install.md", "LICENSE"],
+  "engines": { "node": ">=18" },
+  "keywords": ["mcp", "model-context-protocol", "web-scraping", "markdown", "crawl", "metadata", "x402", "mpp"],
+  "homepage": "https://pagewire.dev/?ref=github-mcp#mcp",
+  "repository": { "type": "git", "url": "git+https://github.com/AgentiLoop/pagewire-mcp.git" },
+  "license": "MIT"
+}
