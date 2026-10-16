@@ -1,6 +1,6 @@
 # pagewire-mcp
 
-🤖 **Built by the makers of [Agent!](https://github.com/AgentiLoop/Agent)**, an autonomous macOS agent.
+🤖 **Built by the makers of [Agent!](https://github.com/AgentiLoop/Agent)**, an autonomous macOS agent. 🌐 [agentiloop.ai](https://agentiloop.ai)
 
 
 [![Pagewire Mcp on AI Agents Listing](https://aiagentslisting.com/pagewire-mcp/badge.svg?claim=952f519d9a37c3685c0e90fb43e83be7)](https://aiagentslisting.com/mcp/pagewire-mcp)
