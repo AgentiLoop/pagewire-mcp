@@ -1,5 +1,8 @@
 # pagewire-mcp
 
+🤖 **Built by the makers of [Agent!](https://github.com/AgentiLoop/Agent)**, an autonomous macOS agent.
+
+
 [![Pagewire Mcp on AI Agents Listing](https://aiagentslisting.com/pagewire-mcp/badge.svg?claim=952f519d9a37c3685c0e90fb43e83be7)](https://aiagentslisting.com/mcp/pagewire-mcp)
 
 MCP server for [PageWire](https://pagewire.dev/?ref=github-mcp). It turns any public web page into clean Markdown for AI agents, paid per call in USDC. There is no API key and no account.
